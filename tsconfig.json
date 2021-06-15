@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "sourceMap": true
+  },
+  "include": ["index.ts"],
+  //어떤 파일들이 컴파일 과정에 포함되는지 typescript에 알려주는 기능
+  "exclude": ["node_modules"]
+}

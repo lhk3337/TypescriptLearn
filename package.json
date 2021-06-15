@@ -1,0 +1,12 @@
+{
+  "name": "TypescriptLearn",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Holim",
+  "repository": "https://github.com/lhk3337/TypescriptLearn",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "prestart": "tsc"
+  }
+}
