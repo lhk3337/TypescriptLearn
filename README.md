@@ -6,15 +6,43 @@
 
 <br/>
 
-# 배우는 이유 ❓
+# 배우는 목적 ❓
 
 #### 현재 프로젝트를 TypeScript를 사용하는데, 프로젝트를 진행하는데 아직 TypeScript가 익숙하지 않아서, 코드를 이해하는데 많은 어려움을 겪고 있음.
 
 <br/>
 
+# 실행법 ➡️
+
+- 터미널에서 yarn init
+- 터미널에서 yarn global add typescript(typescript 설치)
+- 상위 폴더에 tsconfig.json 생성
+  ```json
+  {
+    "compilerOptions": {
+      "target": "es5",
+      "module": "commonjs",
+      "sourceMap": true
+    },
+    "include": ["index.ts"],
+    //어떤 파일들이 컴파일 과정에 포함되는지 typescript에 알려주는 기능
+    "exclude": ["node_modules"]
+  }
+  ```
+- package.json에서 추가
+  ```json
+    "scripts": {
+    "start": "node index.js",
+    "prestart": "tsc"
+    }
+  ```
+- 터미널에서 yarn start하면 index.ts가 index.js로 컴파일 됨
+
+<br/>
+
 # Notes 📝
 
-## TypeScript란?
+## TypeScript란 ⁉️
 
 #### Typed 언어, 어떤 종류의 변수와 데이터 인지 설정 해줘야 함.
 
@@ -40,3 +68,5 @@ const sayHi = (name, age, gender?) => {
 };
 sayHi(name, age); //에러 발생하지 않고, gender는 undefined로 출력함
 ```
+
+## Types
