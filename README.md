@@ -11,6 +11,9 @@
 - [배우는 목적 ❓](#배우는-목적-)
 - [실행법 ➡️](#실행법-%EF%B8%8F)
 - [Notes 📝](#notes-)
+  - [TypeScript란](#TypeScript란)
+  - [Parameter](#parameter)
+  - [Types](#types)
 
 # 배우는 목적 ❓
 
@@ -20,41 +23,45 @@
 
 # 실행법 ➡️
 
-- 터미널에서 yarn init
-- 터미널에서 yarn global add typescript(typescript 설치)
-- 상위 폴더에 tsconfig.json 생성
-  ```json
-  {
-    "compilerOptions": {
-      "target": "es5",
-      "module": "commonjs",
-      "sourceMap": true
-    },
-    "include": ["index.ts"],
-    //어떤 파일들이 컴파일 과정에 포함되는지 typescript에 알려주는 기능
-    "exclude": ["node_modules"]
-  }
-  ```
-- package.json에서 추가
-  ```json
-    "scripts": {
-    "start": "node index.js",
-    "prestart": "tsc"
-    }
-  ```
-- 터미널에서 yarn start하면 index.ts가 index.js로 컴파일 됨
+1. 터미널에서 yarn init
+2. 터미널에서 yarn global add typescript(typescript 설치)
+3. 상위 폴더에 tsconfig.json 생성
+
+   ```json
+   {
+     "compilerOptions": {
+       "target": "es5",
+       "module": "commonjs",
+       "sourceMap": true
+     },
+     "include": ["index.ts"],
+     //어떤 파일들이 컴파일 과정에 포함되는지 typescript에 알려주는 기능
+     "exclude": ["node_modules"]
+   }
+   ```
+
+4. package.json에서 추가
+
+   ```json
+     "scripts": {
+     "start": "node index.js",
+     "prestart": "tsc"
+     }
+   ```
+
+5. 터미널에서 yarn start하면 index.ts가 index.js로 컴파일 됨
 
 <br/>
 
 # Notes 📝
 
-## TypeScript란 ⁉️
+## TypeScript란
 
 #### Typed 언어, 어떤 종류의 변수와 데이터 인지 설정 해줘야 함.
 
 <br/>
 
-## 에러 발생 ❌
+## Parameter
 
 #### 파라미터 갯수가 맞지 않을 경우
 
@@ -77,12 +84,33 @@ sayHi(name, age); //에러 발생하지 않고, gender는 undefined로 출력함
 
 ## Types
 
-#### type이 다른 경우 (매개변수와 전달인자의 type이 다른경우 typescript에서 에러 발생)
+#### type이 다른 경우 (매개변수(parameter)와 전달인자(argument)의 type이 다른경우 typescript에서 에러 발생)
 
 ```typescript
 const sayHi = (name: string, age: number, gender: string) => {
   console.log(`Hello ${name}, you are ${age}, you are a ${gender}`);
 };
 sayHi("Holime", "24", "male"); //Argument of type 'string' is not assignable to parameter of type 'number'.
+export {};
+```
+
+#### function type (리턴값과 함수 뒤에 선언한 type이 같지 않으면 에러 발생)
+
+```typescript
+const sayHi = (name: string, age: number, gender: string): string => {
+  //맨뒤의 string(함수의 type)
+  return `Hello ${name}, you are ${age}, you are a ${gender}`; //string으로 리턴
+};
+console.log(sayHi("Holime", 24, "male"));
+export {};
+```
+
+#### function type에 void를 사용할 경우, return값이 없어야 한다.
+
+```typescript
+const sayHi = (name: string, age: number, gender: string): void => {
+  console.log(`Hello ${name}, you are ${age}, you are a ${gender}`);
+};
+console.log(sayHi("Holime", 24, "male"));
 export {};
 ```
