@@ -22,6 +22,8 @@
 
 ## 에러 발생 ❌
 
+#### 파라미터 갯수가 맞지 않을 경우
+
 ```typescript
 const sayHi = (name, age, gender) => {
   console.log(`Hello ${name}, you are ${age}, you are a ${gender}`);
