@@ -10,6 +10,7 @@
 
 - [Why❓](#why)
 - [실행법 ➡️](#실행법-️)
+
 - [Notes 📝](#notes-)
   - [TypeScript란](#typescript란)
   - [Parameter](#parameter)
@@ -74,7 +75,8 @@
 - ### 선택적인 파라미터 설정
 
   ```typescript
-  const sayHi = (name, age, gender?) => { // 매개변수 끝에 ?를 붙이면 선택적 매개변수로 설정
+  const sayHi = (name, age, gender?) => {
+    // 매개변수 끝에 ?를 붙이면 선택적 매개변수로 설정
     console.log(`Hello ${name}, you are ${age}, you are a ${gender}`);
   };
   sayHi(name, age); //에러 발생하지 않고, gender는 undefined로 출력함
@@ -132,5 +134,31 @@
     return `Hello ${person.name}, you are ${person.age}, you are a ${person.gender}`;
   };
   console.log(sayHi(person));
+  export {};
+  ```
+
+- ### Javascript에서 Interface를 사용 할 경우
+
+  ```javascript
+  class Human {
+    public name: string;
+    public age: number;
+    public gender: string;
+    constructor(name: string, age: number, gender: string) {
+      this.name = name;
+      this.age = age;
+      this.gender = gender;
+    }
+  }
+
+
+  const person = new Human("Holim", 20, "male");
+
+  const sayHi = (person: Human): string => {
+    return `Hello ${person.name}, you are ${person.age}, you are a ${person.gender}!`;
+  };
+
+  console.log(sayHi(person));
+
   export {};
   ```
