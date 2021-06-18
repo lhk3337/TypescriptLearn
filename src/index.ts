@@ -9,11 +9,11 @@ class Human {
   }
 }
 
-const person = { name: "holim", age: 22, gender: "male" };
+const person = new Human("Holim", 20, "male");
 
 const sayHi = (person: Human): string => {
   return `Hello ${person.name}, you are ${person.age}, you are a ${person.gender}!`;
 };
 
-console.log(person);
+console.log(sayHi(person));
 export {};
