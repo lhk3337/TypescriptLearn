@@ -1,4 +1,5 @@
 import * as CryptoJS from "crypto-js";
+import { create } from "domain";
 
 class Block {
   static calculateBlockHash = (
@@ -60,6 +61,7 @@ const createNewBlock = (data: string): Block => {
     data,
     newTimestamp
   );
+  addBlock(newBlock);
   return newBlock;
 };
 
@@ -89,4 +91,10 @@ const addBlock = (candidateBlock: Block): void => {
     blockchain.push(candidateBlock);
   }
 };
+
+createNewBlock("seconde Block");
+createNewBlock("third Block");
+createNewBlock("fourth Block");
+
+console.log(blockchain);
 export {};
